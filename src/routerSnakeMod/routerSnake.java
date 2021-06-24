@@ -33,7 +33,7 @@ public class routerSnake{
         this.y = y;
         this.canDecay = canDecay;
         this.length = length;
-        for(int it = 0; it < 12; it++){
+        for(int it = 0; it < length; it++){
             segments.add(new float[]{0f, 0f});
         };
     }
@@ -103,6 +103,9 @@ public class routerSnake{
                     if(Mathf.chance(0.005f * length)){
                         routerSnakeMod.snakes.add(new routerSnake(x, y, true, length / 2));
                         length = canDecay ? length / 2 : Math.max(length / 2, 12);
+                        while(segments.size > length){
+                            segments.remove(0);
+                        };
                         newBuild.kill();
                     }else{
                         length++;
