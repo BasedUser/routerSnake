@@ -45,7 +45,7 @@ public class routerSnake{
                 routerSnakeMod.snakes.remove(this);
                 return;
             };
-            Call.label(routerSnakeMod.rout, length / 6f, x, y);
+            Call.label(routerSnakeMod.rout, length / 60f * routerSnakeMod.snakeUpdateDelay, x, y);
             tmp = segments.remove(0);
             tmp[0] = x;
             tmp[1] = y;
